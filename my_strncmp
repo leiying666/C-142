@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include<assert.h>
+int my_strncmp(const char* str1,const char* str2,size_t count)
+{
+    assert(str1!=NULL&&str2!=NULL);
+    while(count>0)
+    {
+        if(*str1==*str2)
+        {
+            str1++;
+            str2++;
+            count--;
+        }
+        else if(*str1>*str2)
+            return 1;
+        else
+            return -1;
+    }
+    return 0;
+}
+int main()
+{
+    char a[20]="abcdef";
+    char b[]="abcz";
+    printf("%d\n",my_strncmp(a,b,3));
+    printf("%d\n",my_strncmp(a,b,4));
+    return 0;
+}
